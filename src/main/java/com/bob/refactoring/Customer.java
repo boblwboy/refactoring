@@ -17,12 +17,15 @@ public class Customer {
     public Customer(String name) {
         this.name = name;
     }
+
     public void addRental(Rental arg) {
         _rentals.add(arg);
     }
+
     public String getName() {
         return name;
     }
+
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPonts = 0;
@@ -59,7 +62,7 @@ public class Customer {
         }
         //add footer lines
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPonts) + "frequent renter points";
+        result += "You earned " + String.valueOf(frequentRenterPonts) + " frequent renter points";
         return result;
     }
 }
