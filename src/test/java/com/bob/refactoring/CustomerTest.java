@@ -22,14 +22,22 @@ public class CustomerTest {
         Movie movie = new Movie("tom and jerry", Movie.CHILDRENS);
         Movie movie1 = new Movie("wind talker", Movie.REGULAR);
         Movie movie2 = new Movie("Gemini Man", Movie.NEW_RELEASE);
+        Movie movie3 = new Movie("Terminator", Movie.REGULAR);
+        Movie movie4 = new Movie("black cat", Movie.CHILDRENS);
+
 
         Rental rental = new Rental(movie, 1);
         Rental rental1 = new Rental(movie1, 2);
         Rental rental2 = new Rental(movie2, 3);
+        Rental rental3 = new Rental(movie3, 4);
+        Rental rental4 = new Rental(movie4, 5);
+
 
         customer.addRental(rental);
         customer.addRental(rental1);
         customer.addRental(rental2);
+        customer.addRental(rental3);
+        customer.addRental(rental4);
 
         System.out.println(customer.statement());
 
@@ -37,49 +45,9 @@ public class CustomerTest {
                 "\ttom and jerry\t1.5\n" +
                 "\twind talker\t2.0\n" +
                 "\tGemini Man\t9.0\n" +
-                "Amount owed is 12.5\n" +
-                "You earned 4 frequent renter points");
-    }
-
-    @Test
-    public void statement1Rental() {
-
-        Customer customer = new Customer("liubob");
-
-        Movie movie = new Movie("tom and jerry", Movie.CHILDRENS);
-
-        Rental rental = new Rental(movie, 1);
-
-        customer.addRental(rental);
-
-        System.out.println(customer.statement());
-
-        assertEquals(customer.statement(),"Rental Record for liubob\n" +
-                "\ttom and jerry\t1.5\n" +
-                "Amount owed is 1.5\n" +
-                "You earned 1 frequent renter points");
-    }
-
-    @Test
-    public void statement2Rental() {
-
-        Customer customer = new Customer("liubob");
-
-        Movie movie1 = new Movie("wind talker", Movie.REGULAR);
-        Movie movie2 = new Movie("Gemini Man", Movie.NEW_RELEASE);
-
-        Rental rental1 = new Rental(movie1, 2);
-        Rental rental2 = new Rental(movie2, 3);
-
-        customer.addRental(rental1);
-        customer.addRental(rental2);
-
-        System.out.println(customer.statement());
-
-        assertEquals(customer.statement(),"Rental Record for liubob\n" +
-                "\twind talker\t2.0\n" +
-                "\tGemini Man\t9.0\n" +
-                "Amount owed is 11.0\n" +
-                "You earned 3 frequent renter points");
+                "\tTerminator\t5.0\n" +
+                "\tblack cat\t4.5\n" +
+                "Amount owed is 22.0\n" +
+                "You earned 6 frequent renter points");
     }
 }
